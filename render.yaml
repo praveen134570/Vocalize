@@ -10,25 +10,16 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: DATABASE_URL
-        value: sqlite:///./vocalize.db
+        fromDatabase:
+          name: vocalize-db
+          property: connectionString
       - key: FRONTEND_URL
-        fromService:
-          type: web
-          name: vocalize-web
-          property: host
+        value: https://vocalize.vercel.app
       - key: UPLOAD_DIR
         value: ./uploads
 
-  - type: web
-    name: vocalize-web
-    runtime: static
-    rootDir: frontend
-    buildCommand: npm ci && npm run build
-    staticPublishPath: dist
-    envVars:
-      - key: VITE_API_URL
-        value: https://vocalize-api.onrender.com
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+databases:
+  - name: vocalize-db
+    databaseName: vocalize
+    user: vocalize
+    plan: free
