@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const defaultApiUrl = import.meta.env.PROD
+  ? 'https://vocalize-api-git-main-praveen134570s-projects.vercel.app'
+  : 'http://localhost:8000';
+
+export const API_URL = import.meta.env.VITE_API_URL || defaultApiUrl;
 const api = axios.create({ baseURL: API_URL });
 api.interceptors.request.use((config) => { const token = localStorage.getItem('vocalize_token'); if (token) config.headers.Authorization = `Bearer ${token}`; return config; });
 export const authApi = { register: (data) => api.post('/auth/register', data), login: (data) => api.post('/auth/login', data) };
