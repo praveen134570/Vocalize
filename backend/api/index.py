@@ -26,3 +26,5 @@ if application is None:
 __all__ = ["app"]
 
 # Vercel deployment entrypoint.
+
+# Native Vercel FastAPI settings are configured in the project dashboard.
