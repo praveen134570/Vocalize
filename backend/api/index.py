@@ -24,3 +24,5 @@ if application is None:
         ]
 
 __all__ = ["app"]
+
+# Vercel deployment entrypoint.
