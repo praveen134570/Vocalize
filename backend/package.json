@@ -1,5 +1,8 @@
 {
   "name": "vocalize-api",
   "private": true,
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'FastAPI Vercel function build complete'"
+  }
 }
