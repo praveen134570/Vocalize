@@ -28,3 +28,5 @@ __all__ = ["app"]
 # Vercel deployment entrypoint.
 
 # Native Vercel FastAPI settings are configured in the project dashboard.
+
+# Redeploy after native Vercel command overrides were disabled.
